@@ -46,10 +46,10 @@ models:The folder containing the scripts of the model and the saved model.
 
 3. Go to http://localhost:3001/.
 
-### Summary of results
+## Summary of results
 
 The model shows F1, precision and recalls score for each of the categories of data.
 
-### Licenses and Acknowledgements
+## Licenses and Acknowledgements
 
 The dataset belongs to figure 8 with other licnesing information. 
