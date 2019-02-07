@@ -29,7 +29,7 @@ data: The folder containing the dataset, process data script and storesthe outpu
  * process_data.py - Script that cleans and stores the data in a database.
 
 models:The folder containing the scripts of the model and the saved model.
- * classifer.pkl: The saved model and output of the  model.
+ * classifer.pkl: this file is the output of running train_classify.py. The file is not in the repository
  * train_classify.py: The python script to train the model and build a machine learning model.
 
 ## Running the scripts and webapp
