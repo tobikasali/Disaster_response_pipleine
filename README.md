@@ -52,4 +52,5 @@ The model shows F1, precision and recalls score for each of the categories of da
 
 ## Licenses and Acknowledgements
 
-The dataset belongs to figure 8 with other licnesing information. 
+The dataset belongs to figure 8, with other licnesing information. 
+Udacity datacience course
