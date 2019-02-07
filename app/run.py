@@ -1,6 +1,7 @@
 import json
 import plotly
 import pandas as pd
+import numpy as np
 
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
@@ -43,15 +44,41 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
+    colnames = df.iloc[:,4:40].columns
+    message_cat_counts ={}
+    for key,value in enumerate(colnames):
+        counts = np.sum(df[value])
+        message_cat_counts[value]=counts
+        
+    message_counts = pd.DataFrame(list(message_cat_counts.items()), columns=['categories', 'counts'])
+
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
             'data': [
                 Bar(
+                    x=message_counts['categories'],
+                    y=message_counts['counts']
+                    )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Categories"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
                     x=genre_names,
                     y=genre_counts
-                )
+                    )
             ],
 
             'layout': {
@@ -64,7 +91,7 @@ def index():
                 }
             }
         }
-    ]
+     ]
     
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
